@@ -26,7 +26,8 @@ class MyTestClass(unittest.TestCase):
 
   # test method
   def test_equal_numbers(self):
-    self.assertEqual(2, 2) 
+    self.assertEqual(2, 2)
+    self.assertEqual(1, 1) 
 
 # runs the unit tests in the module
 if __name__ == '__main__':
