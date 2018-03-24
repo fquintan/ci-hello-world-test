@@ -1,15 +1,13 @@
 os: linux
 sudo: false
 language: python
-
 python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
-
+- '3.4'
+- '3.5'
+- '3.6'
 install:
-  - pip install -r requirements.txt
-
+- pip install -r requirements.txt
 script:
-  - python flask_test.py
-
+- python flask_test.py
+after_success:
+- bash ./scripts/deploy.sh
