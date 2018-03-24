@@ -2,12 +2,11 @@
 set -x
 if [ $TRAVIS_BRANCH == 'master' ] ; then
     # Initialize a new git repo in _site, and push it to our server.
-    openssl aes-256-cbc -K $encrypted_a79c3ded4ca6_key -iv $encrypted_a79c3ded4ca6_iv -in deploy_key.enc -out deploy_key -d
-    rm deploy_key.enc
-    chmod 600 deploy_key
-    mv deploy_key ~/.ssh/id_rsa
-    openssl aes-256-cbc -K $encrypted_a79c3ded4ca6_key -iv $encrypted_a79c3ded4ca6_iv -in host_key.enc -out host_key -d
-    rm host_key.enc
+    openssl aes-256-cbc -K $encrypted_a79c3ded4ca6_key -iv $encrypted_a79c3ded4ca6_iv -in secure_files.tar.enc -out secure_files.tar -d
+    tar xvf secure_files.tar
+    chmod 600 id_rsa
+    mv id_rsa ~/.ssh/id_rsa
+
     cat host_key >> ~/.ssh/known_hosts
 
     git init
