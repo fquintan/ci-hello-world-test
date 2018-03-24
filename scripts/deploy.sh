@@ -6,6 +6,9 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     rm deploy_key.enc
     chmod 600 deploy_key
     mv deploy_key ~/.ssh/id_rsa
+    openssl aes-256-cbc -K $encrypted_a79c3ded4ca6_key -iv $encrypted_a79c3ded4ca6_iv -in host_key.enc -out host_key -d
+    rm host_key.enc
+    cat host_key >> ~/.ssh/id_rsa
 
     git init
         
