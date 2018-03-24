@@ -12,7 +12,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
 
     git init
         
-    git remote add deploy "deploy@felipequintanilla.cl:/apps"
+    git remote add deploy ssh://deploy@felipequintanilla.cl:/apps
     git config user.name "Travis CI"
     git config user.email "travisCI@mail.com"
     
